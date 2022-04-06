@@ -15,7 +15,6 @@ import java.util.Objects;
 public class Passenger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "passenger_id")
     private Integer passengerId;
 
@@ -28,7 +27,7 @@ public class Passenger {
     @Column(name = "seat_number")
     private Integer seatNumber;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
 

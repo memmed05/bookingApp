@@ -6,6 +6,10 @@ import java.util.List;
 
 public interface FlightService {
     String addFlight(Flight flight);
-    List<Flight>getAllFlights();
+
+    List<Flight> getAllFlights();
+
     String removeFlight(Integer id);
+
+    Flight getFlightById(Integer id);
 }

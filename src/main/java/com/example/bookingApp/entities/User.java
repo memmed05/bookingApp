@@ -14,15 +14,19 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer id;
 
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "user_firstname")
+    private String userFirstName;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @Column(name = "user_lastname")
+    private String userLastName;
+
+    @OneToOne
     @JoinColumn(name = "flight_id")
     private Flight flight;
 

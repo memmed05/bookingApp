@@ -1,5 +1,6 @@
 package com.example.bookingApp.services;
 
+import com.example.bookingApp.dtos.BoardDto;
 import com.example.bookingApp.entities.User;
 
 import java.util.List;
@@ -10,4 +11,6 @@ public interface UserService {
     List<User> getAllUsers();
 
     String removeUser(Integer id);
+
+    String  book(Integer id, BoardDto boardDto);
 }
