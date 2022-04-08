@@ -4,7 +4,6 @@ import com.example.bookingApp.entities.Flight;
 import com.example.bookingApp.repositories.FlightRepository;
 import com.example.bookingApp.services.FlightService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

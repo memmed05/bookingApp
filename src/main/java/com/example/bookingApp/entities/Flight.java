@@ -1,12 +1,12 @@
 package com.example.bookingApp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +15,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "user"})
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

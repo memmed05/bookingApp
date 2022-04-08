@@ -1,9 +1,8 @@
 package com.example.bookingApp.controllers;
 
 import com.example.bookingApp.services.FlightService;
-import com.example.bookingApp.services.serviceImpl.FlightServiceImpl;
 import com.example.bookingApp.entities.Flight;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,14 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1/flight")
+@RequiredArgsConstructor
 public class FlightController {
 
     private final FlightService flightService;
-
-    @Autowired
-    public FlightController(FlightServiceImpl flightService) {
-        this.flightService = flightService;
-    }
 
     @GetMapping(value = "/getAllFlights")
     public ResponseEntity<List<Flight>> getAllFlights() {
@@ -26,7 +21,7 @@ public class FlightController {
     }
 
     @GetMapping(value = "/getFlightById")
-    public ResponseEntity<Flight> getFlightById(@RequestParam Integer id) {
+    public ResponseEntity<Flight> getFlightById(@RequestParam(value = "flightId", required = true) Integer id) {
         return ResponseEntity.ok(this.flightService.getFlightById(id));
     }
 
