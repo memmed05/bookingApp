@@ -24,14 +24,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class FlightControllerTest {
 
     @Autowired
-   private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
     @MockBean
     private FlightService flightService;
 
     @Test
     void getAllFlights() throws Exception {
-        List<Flight> flights=flightService.getAllFlights();
+        List<Flight> flights = flightService.getAllFlights();
 
         when(flightService.getAllFlights()).thenReturn(flights);
 
@@ -41,7 +41,7 @@ class FlightControllerTest {
 
     @Test
     void getFlightById() throws Exception {
-        Flight flight=flightService.getFlightById(1);
+        Flight flight = flightService.getFlightById(1);
         when(flightService.getFlightById(1)).thenReturn(flight);
 
         mockMvc.perform(get("/api/v1/flight/getFlightById?flightId=1")).andDo(print()).andExpect(status().isOk());
